@@ -52,12 +52,12 @@
             <button class="hover:text-red-700 absolute border-none text-5xl top-1/2 -translate-y-1/2 left-1" v-on:click="carouselM"> ← </button>
           </div>
         </div>
-        <div class="flex justify-around w-full h-3/6 my-10">
-          <div class=" grid grid-cols-2 ph:grid-cols-1 ph:grid-rows-2 h-full w-4/5 ph:gap-y-24 ">
+        <div class="flex justify-around w-full h-3/6 ph:h-5/6 my-10">
+          <div class=" grid grid-cols-2 ph:grid-cols-1 ph:grid-rows-2 h-full w-4/5 ph:gap-10">
               <div class="h-full text-xl flex flex-col justify-around ph:justify-between">
                   <p v-if="data.price">prix : {{data.price}}</p>
                   <p v-else>prix : \</p>
-                  <!-- création des point pour les notes -->
+                  <!-- création des points pour les notes -->
                   <div class="flex flex-row items-center" v-if="data.rating == 0"><p>note : {{data.rating}}/5</p>     <div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><p class="mx-3">{{data.review_count}} avis</p></div>
                   <div class="flex flex-row items-center" v-if="data.rating == 0.5"><p>note : {{data.rating}}/5</p>     <div class="h-4 w-4 rounded-full mx-1 bg-gradient-to-r from-red-600 to-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><p class="mx-3">{{data.review_count}} avis</p></div>
                   <div class="flex flex-row items-center" v-else-if="data.rating == 1"><p>note : {{data.rating}}/5</p><div class="h-4 w-4 rounded-full mx-1 bg-red-600"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><p class="mx-3">{{data.review_count}} avis</p></div>
