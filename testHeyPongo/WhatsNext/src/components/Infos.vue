@@ -15,9 +15,10 @@
           </li>
         </ul>
       </div>
-      <p>prix : {{data.price}}</p>
-      <div class="flex flex-row items-center" v-if="data.rating == 0"><p class="my-4">note : {{data.rating}}/5</p>     <div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div></div>
-      <div class="flex flex-row items-center" v-if="data.rating == 0.5"><p class="my-4">note : {{data.rating}}/5</p>     <div class="h-4 w-4 rounded-full mx-1 bg-gradient-to-r from-red-600 to-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div></div>
+      <p v-if="data.price">prix : {{data.price}}</p>
+      <p v-else>prix : \</p>
+      <div class="flex flex-row items-center" v-if="data.rating == 0"><p class="my-4">note : {{data.rating}}/5</p><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div></div>
+      <div class="flex flex-row items-center" v-if="data.rating == 0.5"><p class="my-4">note : {{data.rating}}/5</p><div class="h-4 w-4 rounded-full mx-1 bg-gradient-to-r from-red-600 to-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div></div>
       <div class="flex flex-row items-center" v-else-if="data.rating == 1"><p class="my-4">note : {{data.rating}}/5</p><div class="h-4 w-4 rounded-full mx-1 bg-red-600"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div></div>
       <div class="flex flex-row items-center" v-else-if="data.rating == 1.5"><p class="my-4">note : {{data.rating}}/5</p><div class="h-4 w-4 rounded-full mx-1 bg-red-600"></div><div class="h-4 w-4 rounded-full mx-1 bg-gradient-to-r from-red-600 to-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div></div>
       <div class="flex flex-row items-center" v-else-if="data.rating == 2"><p class="my-4">note : {{data.rating}}/5</p><div class="h-4 w-4 rounded-full mx-1 bg-red-600"></div><div class="h-4 w-4 rounded-full mx-1 bg-red-600"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div></div>
@@ -54,7 +55,8 @@
         <div class="flex justify-around w-full h-3/6 my-10">
           <div class=" grid grid-cols-2 ph:grid-cols-1 ph:grid-rows-2 h-full w-4/5 ph:gap-y-24 ">
               <div class="h-full text-xl flex flex-col justify-around ph:justify-between">
-                  <p>prix : {{data.price}}</p>
+                  <p v-if="data.price">prix : {{data.price}}</p>
+                  <p v-else>prix : \</p>
                   <div class="flex flex-row items-center" v-if="data.rating == 0"><p>note : {{data.rating}}/5</p>     <div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><p class="mx-3">{{data.review_count}} avis</p></div>
                   <div class="flex flex-row items-center" v-if="data.rating == 0.5"><p>note : {{data.rating}}/5</p>     <div class="h-4 w-4 rounded-full mx-1 bg-gradient-to-r from-red-600 to-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><p class="mx-3">{{data.review_count}} avis</p></div>
                   <div class="flex flex-row items-center" v-else-if="data.rating == 1"><p>note : {{data.rating}}/5</p><div class="h-4 w-4 rounded-full mx-1 bg-red-600"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><p class="mx-3">{{data.review_count}} avis</p></div>
@@ -70,6 +72,7 @@
                   <p>Adresse : {{ data.location.address1 }} {{ data.location.address2 }} {{ data.location.address3 }} {{ data.location.city }}</p>
                   <p>Distance : {{infos.distance.toFixed()}} </p>
                   <br>
+                  <p>ouvert entre {{numberStart}} et {{numberEnd}} </p>
                   <p>Tél : {{data.phone}}</p>
                   <div class="w-full flex flex-row">
                     <a class="self-center underline p-2 bg-gray-600 hover:bg-red-600 rounded-lg" :href="data.url" target="_blank">Visiter le site</a>
@@ -94,7 +97,10 @@ export default {
     return {
         moreInfo: false,
         data: undefined,
-        imgCompteur : 0
+        imgCompteur : 0,
+        day: 0,
+        numberStart: "",
+        numberEnd: ""
     }
   },
   props: {
@@ -114,8 +120,35 @@ export default {
       })
       .then(response => {
           this.data = response.data
-          console.log(this.data)
+          this.chargeDay()
       })
+    },
+    chargeDay(){
+      let today = new Date()
+      this.day = today.getDay() - 1
+
+      let numberStart = this.data.hours[0].open[this.day].start
+      let numberEnd = this.data.hours[0].open[this.day].end
+      let chaineStart = []
+      let chaineEnd = []
+      for(let i=0 ; i < 4 ; i++){
+          chaineStart.push(parseInt(numberStart%10))
+          chaineEnd.push(parseInt(numberEnd%10))
+          numberStart /=10
+          numberEnd /=10
+      }
+      for (let i=3 ; i > -1 ; i--){
+        this.numberStart += chaineStart[i].toString()
+        if(i == 2){
+          this.numberStart += "h"
+        }
+      }
+      for (let i=3 ; i > -1 ; i--){
+        this.numberEnd += chaineEnd[i].toString()
+        if(i == 2){
+          this.numberEnd += "h"
+        }
+      }
     },
     carouselP(){
       this.imgCompteur ++
