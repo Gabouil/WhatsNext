@@ -57,6 +57,7 @@
               <div class="h-full text-xl flex flex-col justify-around ph:justify-between">
                   <p v-if="data.price">prix : {{data.price}}</p>
                   <p v-else>prix : \</p>
+                  <!-- création des point pour les notes -->
                   <div class="flex flex-row items-center" v-if="data.rating == 0"><p>note : {{data.rating}}/5</p>     <div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><p class="mx-3">{{data.review_count}} avis</p></div>
                   <div class="flex flex-row items-center" v-if="data.rating == 0.5"><p>note : {{data.rating}}/5</p>     <div class="h-4 w-4 rounded-full mx-1 bg-gradient-to-r from-red-600 to-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><p class="mx-3">{{data.review_count}} avis</p></div>
                   <div class="flex flex-row items-center" v-else-if="data.rating == 1"><p>note : {{data.rating}}/5</p><div class="h-4 w-4 rounded-full mx-1 bg-red-600"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><div class="h-4 w-4 rounded-full mx-1 bg-white"></div><p class="mx-3">{{data.review_count}} avis</p></div>
@@ -123,6 +124,8 @@ export default {
           this.chargeDay()
       })
     },
+
+    // chargement des heures d'ouverture, je pense qu'il y a plus opti mais je n'ai pas trouvé
     chargeDay(){
       let today = new Date()
       this.day = today.getDay() - 1

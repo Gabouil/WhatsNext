@@ -9,7 +9,7 @@
       <template v-if="ourData">
         <infos v-for="(data, index) in ourData.businesses" :key="index" :infos="data" />
       </template>
-      <div class="w-full flex absolute" v-else>
+      <div class="w-full flex absolute top-60 left-0" v-else>
         <p class="m-auto">Votre page charge !</p>
       </div>
     </div>
